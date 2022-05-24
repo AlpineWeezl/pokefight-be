@@ -10,7 +10,12 @@ export const getAllPokemon = (req, res) => {
 
 // One by id or name -
 export const getOnePokemonByIdOrName = (req, res) => {
-    
+
+}
+
+// One Detail of one pokemon
+export const getOneDetailOfOnePokemon = (req, res) => {
+
 }
 
 

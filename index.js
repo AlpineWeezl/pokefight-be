@@ -12,5 +12,4 @@ app.use(express());
 // routers
 
 app.use('/api/pokemon', )
-app.use('/api/pokemon/:id', )
 
