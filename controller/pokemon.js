@@ -20,6 +20,11 @@ const getJSONdata = () => {
 // All ---------------
 export const getAllPokemon = (req, res) => {
     console.log(getJSONdata());
+    try {
+        res.status(200).json(getJSONdata()); 
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
 }
 
 // One by id or name -
