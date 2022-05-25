@@ -14,7 +14,7 @@ export const getAllPokemon = (req, res) => {
 
 // One by id or name -
 export const getOnePokemonByIdOrName = (req, res) => {
-    const id = req.params;
+    const {id} = req.params;
     const pokedex = req.jsonData;
     if (id)
     {
