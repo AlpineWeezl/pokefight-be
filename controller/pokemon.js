@@ -24,8 +24,20 @@ export const getAllPokemon = (req, res) => {
 
 // One by id or name -
 export const getOnePokemonByIdOrName = (req, res) => {
-    console.log(getJSONdata());
-    
+    const id = req.params;
+    const pokedex = req.jsonData;
+    if (id)
+    {
+        const pokemon = pokedex.find((pokemon) => id == pokemon.id || id.toLowerCase() == pokemon.name.english.toLowerCase())
+        if(pokemon)
+        {
+            res.status(200).json(pokemon)
+        } else {
+            res.status(404).send("Pokémon not found!")
+        }
+    } else {
+        res.status(400).send("Something went wrong!");
+    }
 }
 
 // One Detail of one pokemon
