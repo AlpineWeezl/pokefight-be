@@ -1,6 +1,7 @@
 import 'dotenv/config';
 import express from "express";
 import { pokemonRouter } from './router/pokemon.js';
+import cors from 'cors';
 
 const app = express();
 
