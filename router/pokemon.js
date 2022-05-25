@@ -7,14 +7,14 @@ export const pokemonRouter = Router();
 pokemonRouter
     .route('/')
     .get(getJSONdata, getAllPokemon)
-    .all((req, res) => {res.status(401).json({error: req.error})});
+    .all((req, res) => {res.status(501).json({error: req.error})});
 
 pokemonRouter
     .route('/:id')
     .get(getJSONdata, getOnePokemonByIdOrName)
-    .all((req, res) => {res.status(401).json({error: req.error})});
+    .all((req, res) => {res.status(501).json({error: req.error})});
 
 pokemonRouter
     .route('/:id/:info')
-    .get(getOneDetailOfOnePokemon)
-    .all((req, res) => {res.status(401).json({error: req.error})});
+    .get(getJSONdata, getOneDetailOfOnePokemon)
+    .all((req, res) => {res.status(501).json({error: req.error})});
