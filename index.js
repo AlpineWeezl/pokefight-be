@@ -10,6 +10,7 @@ const port = process.env.PORT || 5000;
 // middlewares
 
 app.use(express());
+app.use(cors());
 
 // ###############################################
 // routers
