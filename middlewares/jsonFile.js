@@ -11,7 +11,7 @@ export const getJSONdata = (req, res, next) => {
 
     readFile(pokedexPath, async (err, data) => {
         try {
-            req.jsonData = JSON.parse(data);
+            req.jsonData = await JSON.parse(data);
             next();
         } catch (error) {
             console.log(error);

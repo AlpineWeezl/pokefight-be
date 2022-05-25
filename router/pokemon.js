@@ -11,7 +11,7 @@ pokemonRouter
 
 pokemonRouter
     .route('/:id')
-    .get(getOnePokemonByIdOrName)
+    .get(getJSONdata, getOnePokemonByIdOrName)
     .all((req, res) => {res.status(401).json({error: req.error})});
 
 pokemonRouter
