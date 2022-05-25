@@ -1,17 +1,3 @@
-import { readFile, readFileSync } from 'fs';
-import { fileURLToPath } from 'url';
-import path, { dirname } from 'path';
-
-// ########################################################
-// get Data from JSON File
-const getJSONdata = () => {
-    const __filename = fileURLToPath(import.meta.url);
-    const __dirname = dirname(__filename);
-    const pokedexPath = path.join(__dirname, '../pokedex.json')
-    const jsonData = JSON.parse(readFileSync(pokedexPath));
-    return jsonData;
-}
-
 
 // ########################################################
 // Basic CRUD Operations
@@ -19,7 +5,11 @@ const getJSONdata = () => {
 // Read ---------------------------------------------------
 // All ---------------
 export const getAllPokemon = (req, res) => {
-    console.log(getJSONdata());
+    try {
+        res.status(200).json(req.jsonData);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
 }
 
 // One by id or name -

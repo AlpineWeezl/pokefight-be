@@ -4,7 +4,7 @@ import { pokemonRouter } from './router/pokemon.js';
 
 const app = express();
 
-const port = process.env.PORT;
+const port = process.env.PORT || 5000;
 
 // ###############################################
 // middlewares
