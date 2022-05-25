@@ -6,7 +6,7 @@
 // All ---------------
 export const getAllPokemon = (req, res) => {
     try {
-        if (req.json) {
+        if (req.jsonData) {
             res.status(200).json(req.jsonData);
         } else {
             res.status(404).send("Pokémon not found!");
