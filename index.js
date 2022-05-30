@@ -2,6 +2,7 @@ import 'dotenv/config';
 import "./db/mongoClient.js";
 import express from "express";
 import { pokemonRouter } from './router/pokemon.js';
+import cors from 'cors';
 
 const app = express();
 
@@ -11,6 +12,7 @@ const port = process.env.PORT || 5000;
 // middlewares
 
 app.use(express());
+app.use(cors());
 
 // ###############################################
 // routers
