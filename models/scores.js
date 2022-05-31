@@ -9,5 +9,5 @@ const scoreSchema = new Schema({
   rounds: Number,
 });
 
-export default model("Score", userSchema);
+export default model("Score", scoreSchema);
 */

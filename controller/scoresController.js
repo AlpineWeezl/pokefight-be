@@ -1,4 +1,4 @@
-import User from "../models/score.js";
+import User from "../models/scores.js";
 
 export const getAllScores = async (req, res) => {
   try {
@@ -43,12 +43,12 @@ export const updateScore = async (req, res) => {
   try {
     const { id } = req.params;
     const { player, pokemon, score, rounds } = req.body;
-    const modifiedUser = await User.findByIdAndUpdate(
+    const modifiedScore = await User.findByIdAndUpdate(
       id,
       { player, pokemon, score, rounds },
       { new: true }
     );
-    res.status(200).json(modifiedUser);
+    res.status(200).json(modifiedScore);
   } catch (error) {
     res.status(500).json(error);
   }
