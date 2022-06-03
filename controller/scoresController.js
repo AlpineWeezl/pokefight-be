@@ -1,11 +1,13 @@
-import User from "../models/scores.js";
+import Score from "../models/scores.js";
 
 export const getAllScores = async (req, res) => {
   try {
-    const allScores = await Score.find();
+    const allScores = await Score.find({});
+    console.log('Bis hier funktioniert es');
+    console.log(allScores);
     res.status(200).json({ scores: allScores });
   } catch (error) {
-    res.status(500).json(err);
+    res.status(500).json(error);
   }
 };
 
@@ -15,12 +17,13 @@ export const getSingleScore = async (req, res) => {
     const singleScore = await Score.findById(id);
     res.status(200).json(singleScore);
   } catch (error) {
-    res.status(500).json(err);
+    res.status(500).json(error);
   }
 };
 
 export const createNewScore = async (req, res) => {
   try {
+    console.log(req.body);
     const { player, pokemon, score, rounds } = req.body;
     const newScore = await Score.create({ player, pokemon, score, rounds });
     res.status(201).json(newScore);
