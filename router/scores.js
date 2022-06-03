@@ -1,16 +1,15 @@
 import { Router } from "express";
 import {
-  getAllScores,
-  //getSingleScore,
-  createNewScore,
-  //deleteScore,
-  //updateScore,
-} from "../controllers/scoresController.js";
+    getAllScores,
+    createNewScore
+} from "../controller/scoresController.js";
 
-const scoresRouter = Router();
+export const scoresRouter = Router({});
 
-scoresRouter.route("/game/save").post(createNewScore);
+scoresRouter
+    .route("/create")
+    .post(createNewScore);
 
-scoresRouter.route("/game/leaderboard").get(getAllScores);
-
-export default scores;
+scoresRouter
+    .route("/")
+    .get(getAllScores);
