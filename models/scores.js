@@ -5,9 +5,9 @@ const { Schema, model } = mongoose;
 const scoreSchema = new Schema(
   {
     player: { type: String, required: true },
-    pokemon: { type: String, required: true },
-    score: { type: Number, required: true },
-    rounds: { type: Number, required: true },
+    pokemon: { type: String },
+    score: { type: Number },
+    rounds: { type: Number },
   }
 );
 
