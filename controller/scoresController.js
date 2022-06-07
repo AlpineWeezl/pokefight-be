@@ -2,9 +2,20 @@ import Score from "../models/scores.js";
 
 export const getAllScores = async (req, res) => {
   try {
-    const allScores = await Score.find({});
-    console.log('Bis hier funktioniert es');
-    console.log(allScores);
+    const allScores = await Score.aggregate(
+      [
+        {
+          $group: {
+            _id: "$player",
+            score: {
+              $sum: "$score"
+            }
+          }
+        }
+      ]
+    );
+
+    // console.log(allScores);
     res.status(200).json({ scores: allScores });
   } catch (error) {
     res.status(500).json(error);
